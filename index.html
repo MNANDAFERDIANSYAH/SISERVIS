@@ -1,0 +1,1523 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SI SERVIS - Servis Motor Tanpa Repot</title>
+<link
+href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--gold-dark: #D4AF37;
+--gold-light: #FFD700;
+--black-dark: #121212;
+--black-medium: #1E1E1E;
+--black-light: #2A2A2A;
+--text-light: #F5F5F5;
+--text-dark: #333333;
+}
+body {
+font-family: 'Poppins', sans-serif;
+margin: 0;
+padding: 0;
+line-height: 1.6;
+color: var(--text-dark);
+background-color: white;
+}
+header {
+background: linear-gradient(135deg, var(--black-dark), var(--black-medium));
+padding: 25px 0;
+text-align: center;
+box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+position: relative;
+overflow: hidden;
+}
+header::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+height: 15px;
+background: linear-gradient(90deg,
+var(--gold-dark) 0%,
+var(--gold-light) 20%,
+var(--gold-dark) 40%,
+var(--gold-light) 60%,
+var(--gold-dark) 80%,
+var(--gold-light) 100%);
+background-size: 200% 100%;
+animation: wave 3s linear infinite;
+}
+@keyframes wave {
+0% { background-position: 0% 50%; }
+100% { background-position: 200% 50%; }
+}
+header h1 {
+color: var(--gold-light);
+margin: 0;
+font-size: 2.5rem;
+font-weight: 700;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+nav {
+background-color: var(--black-dark);
+padding: 15px 0;
+position: sticky;
+top: 0;
+z-index: 100;
+box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+text-align: center; /* Added for centering nav links */
+}
+nav a {
+color: var(--gold-light);
+text-decoration: none;
+margin: 0 15px;
+padding: 8px 15px;
+font-weight: 500;
+border-radius: 30px;
+transition: all 0.3s ease;
+}
+nav a:hover {
+background-color: var(--black-medium);
+transform: translateY(-2px);
+color: white;
+}
+.container {
+padding: 30px;
+max-width: 1200px;
+margin: auto;
+}
+.hero {
+background: linear-gradient(rgba(30, 30, 30, 0.85), rgba(42, 42, 42, 0.9)),
+url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+background-size: cover;
+background-position: center;
+padding: 60px 30px;
+text-align: center;
+margin-bottom: 30px;
+border-radius: 10px;
+color: var(--gold-light);
+box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+position: relative;
+overflow: hidden;
+border: 1px solid rgba(212, 175, 55, 0.3);
+}
+.hero::before {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+height: 10px;
+background: linear-gradient(90deg,
+var(--gold-dark) 0%,
+var(--gold-light) 50%,
+var(--gold-dark) 100%);
+}
+.hero h2 {
+font-size: 2.2rem;
+margin-bottom: 20px;
+position: relative;
+z-index: 1;
+color: white;
+}
+.hero p {
+font-size: 1.2rem;
+margin-bottom: 30px;
+position: relative;
+z-index: 1;
+color: var(--text-light);
+}
+.btn {
+background-color: var(--black-dark);
+color: var(--gold-light);
+padding: 12px 25px;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+text-decoration: none;
+display: inline-block;
+margin: 10px 5px;
+font-weight: 600;
+transition: all 0.3s ease;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+position: relative;
+overflow: hidden;
+z-index: 1;
+border: 1px solid var(--gold-dark);
+}
+.btn::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, var(--black-medium), var(--gold-dark));
+z-index: 1;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+.btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+color: white;
+}
+.btn:hover::after {
+opacity: 1;
+}
+.btn-accent {
+background-color: var(--gold-dark);
+color: var(--black-dark);
+font-weight: 700;
+}
+.btn-accent:hover {
+background-color: var(--gold-light);
+color: var(--black-dark);
+}
+.hidden {
+display: none;
+}
+section {
+background-color: white;
+padding: 30px;
+border-radius: 10px;
+margin-bottom: 30px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+border-top: 3px solid var(--gold-dark);
+}
+section h2 {
+color: var(--black-dark);
+margin-top: 0;
+font-size: 1.8rem;
+border-bottom: 2px solid var(--gold-dark);
+padding-bottom: 10px;
+display: inline-block;
+}
+.form-group {
+margin-bottom: 20px;
+}
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 500;
+color: var(--black-dark);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+padding: 12px 15px;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-family: 'Poppins', sans-serif;
+transition: all 0.3s ease;
+background-color: white;
+color: var(--text-dark);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+border-color: var(--gold-dark);
+outline: none;
+box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+.rating {
+unicode-bidi: bidi-override;
+direction: rtl;
+text-align: center;
+margin: 20px 0;
+}
+.rating > span {
+display: inline-block;
+position: relative;
+width: 1.2em;
+font-size: 2rem;
+cursor: pointer;
+color: #ddd;
+transition: all 0.2s ease;
+}
+.rating > span:hover,
+.rating > span:hover ~ span {
+color: var(--gold-light);
+}
+.rating > span.active,
+.rating > span.active ~ span {
+color: var(--gold-light);
+}
+ul, ol {
+padding-left: 20px;
+}
+li {
+margin-bottom: 10px;
+position: relative;
+padding-left: 25px;
+}
+ul li:before {
+content: "•";
+color: var(--gold-dark);
+font-size: 1.5rem;
+position: absolute;
+left: 0;
+top: -5px;
+}
+ol {
+counter-reset: item;
+}
+ol li:before {
+content: counter(item) ".";
+counter-increment: item;
+color: var(--gold-dark);
+font-weight: bold;
+position: absolute;
+left: 0;
+}
+.service-card {
+background: white;
+border-radius: 10px;
+padding: 25px;
+margin-bottom: 20px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+border-left: 4px solid var(--gold-dark);
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+border: 1px solid rgba(0,0,0,0.1);
+}
+.service-card::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+height: 3px;
+background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.service-card h3 {
+color: var(--black-dark);
+margin-top: 0;
+}
+.payment-info {
+background-color: #f8f8f8;
+padding: 20px;
+border-radius: 8px;
+border-left: 4px solid var(--gold-dark);
+margin: 20px 0;
+border: 1px solid rgba(0,0,0,0.1);
+}
+.price-tag {
+background-color: var(--gold-light);
+color: var(--black-dark);
+padding: 5px 15px;
+border-radius: 20px;
+font-weight: 600;
+display: inline-block;
+margin: 10px 0;
+}
+.wave-pattern {
+height: 15px;
+width: 100%;
+background: linear-gradient(90deg,
+var(--gold-dark) 0%,
+var(--gold-light) 20%,
+var(--gold-dark) 40%,
+var(--gold-light) 60%,
+var(--gold-dark) 80%,
+var(--gold-light) 100%);
+background-size: 200% 100%;
+animation: wave 3s linear infinite;
+}
+/* Product Display Styles */
+.product-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 20px;
+}
+.product-card {
+background-color: #fff;
+border: 1px solid #eee;
+border-radius: 8px;
+padding: 15px;
+text-align: center;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+transition: transform 0.2s ease-in-out;
+}
+.product-card:hover {
+transform: translateY(-5px);
+}
+.product-card img {
+max-width: 100%;
+height: 150px;
+object-fit: cover;
+border-radius: 4px;
+margin-bottom: 10px;
+}
+.product-card h4 {
+margin-top: 0;
+margin-bottom: 8px;
+color: var(--black-dark);
+font-size: 1.1rem;
+}
+.product-card .price {
+font-weight: 600;
+color: var(--gold-dark);
+margin-bottom: 5px;
+}
+.product-card .stock {
+font-size: 0.9em;
+color: #777;
+margin-bottom: 10px;
+}
+.product-card .add-to-cart-btn {
+background-color: var(--gold-dark);
+color: white;
+padding: 8px 15px;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+.product-card .add-to-cart-btn:hover {
+background-color: var(--gold-light);
+color: var(--black-dark);
+}
+.search-filter-container {
+margin-bottom: 20px;
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+align-items: center;
+}
+.search-filter-container input,
+.search-filter-container select {
+flex: 1;
+min-width: 150px;
+padding: 10px 15px;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-family: 'Poppins', sans-serif;
+}
+#cart-summary {
+background-color: #f8f8f8;
+padding: 15px;
+border-radius: 8px;
+border: 1px solid rgba(0,0,0,0.1);
+margin-top: 20px;
+}
+#cart-summary h3 {
+margin-top: 0;
+color: var(--black-dark);
+}
+#cart-items {
+list-style: none;
+padding: 0;
+margin-bottom: 15px;
+}
+#cart-items li {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 8px 0;
+border-bottom: 1px dashed #eee;
+color: var(--text-dark);
+padding-left: 0; /* Override list styling */
+}
+#cart-items li:last-child {
+border-bottom: none;
+}
+#cart-items li .item-name {
+font-weight: 500;
+}
+#cart-items li .item-price {
+color: var(--gold-dark);
+font-weight: 600;
+}
+#total-checkout-price {
+font-size: 1.2rem;
+font-weight: 700;
+color: var(--black-dark);
+text-align: right;
+margin-top: 15px;
+padding-top: 10px;
+border-top: 2px solid var(--gold-dark);
+}
+
+/* New style for application forms */
+.application-form {
+    background-color: #f8f8f8;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+}
+.application-form h4 {
+    color: var(--black-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+background: linear-gradient(135deg, var(--black-dark), var(--black-medium));
+color: var(--text-light);
+padding: 20px 0;
+text-align: center;
+font-size: 0.9rem;
+box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+border-top: 3px solid var(--gold-dark);
+margin-top: 20px; /* Add some space above the footer */
+}
+
+footer .footer-content {
+max-width: 1200px;
+margin: auto;
+padding: 0 20px;
+}
+
+footer p {
+margin: 5px 0;
+}
+
+footer a {
+color: var(--gold-light);
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+footer a:hover {
+color: white;
+}
+
+footer .social-links a {
+font-size: 1.2rem;
+margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+nav a {
+display: block;
+margin: 5px 0;
+}
+.hero {
+padding: 40px 20px;
+}
+.hero h2 {
+font-size: 1.8rem;
+}
+.search-filter-container {
+flex-direction: column;
+}
+.search-filter-container input,
+.search-filter-container select {
+width: 100%;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>SI SERVIS</h1>
+</header>
+
+<nav>
+<a href="#" onclick="showSection('beranda')">Beranda</a>
+<a href="#" onclick="showSection('layanan')">Layanan</a>
+<a href="#" onclick="showSection('cara-kerja')">Cara Kerja</a>
+<a href="#" onclick="showSection('tentang-kami')">Tentang Kami</a>
+<a href="#" onclick="showSection('produk')">Produk</a>
+<a href="#" onclick="showSection('lowongan')">Lowongan Montir</a>
+<a href="#" onclick="showSection('register')">Daftar</a>
+<a href="#" onclick="showSection('login')">Login</a>
+</nav>
+
+<div class="container">
+<section id="beranda">
+<div class="hero">
+<h2>Servis Motor Tanpa Repot!</h2>
+<p>Kami jemput motor Anda langsung ke bengkel terpercaya. Cepat, aman, dan terjamin.</p>
+<a href="#" class="btn btn-accent" onclick="showSection('pesan-sekarang')">Pesan Sekarang</a>
+</div>
+
+<div class="wave-pattern"></div>
+
+<div style="text-align: center; margin: 40px 0;">
+<h3>Mengapa Memilih Kami?</h3>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+<div class="service-card" style="flex: 1; min-width: 250px;">
+<h3>🛵 Penjemputan Cepat</h3>
+<p>Tim kami siap menjemput motor Anda dalam waktu 1 jam setelah pemesanan</p>
+</div>
+<div class="service-card" style="flex: 1; min-width: 250px;">
+<h3>🔧 Teknisi Profesional</h3>
+<p>Ditangani oleh mekanik berpengalaman dengan alat modern</p>
+</div>
+<div class="service-card" style="flex: 1; min-width: 250px;">
+<h3>💰 Harga Terjangkau</h3>
+<p>Biaya servis transparan tanpa biaya tambahan</p>
+</div>
+</div>
+</div>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="layanan" class="hidden">
+<h2>Layanan Kami</h2>
+<div class="service-card">
+<h3>Penjemputan Motor Rusak</h3>
+<p>Kami akan menjemput motor Anda di lokasi yang Anda tentukan, kapan pun Anda membutuhkan.</p>
+</div>
+<div class="service-card">
+<h3>Pengantaran Setelah Servis</h3>
+<p>Motor Anda akan diantar kembali setelah servis selesai, bersih dan siap pakai.</p>
+</div>
+<div class="service-card">
+<h3>Tracking Status Servis</h3>
+<p>Pantau perkembangan servis motor Anda melalui aplikasi kami secara real-time.</p>
+</div>
+<div class="service-card">
+<h3>Bengkel Terpercaya & Profesional</h3>
+<p>Bekerja sama dengan jaringan bengkel terbaik dengan standar kualitas tinggi.</p>
+</div>
+<a href="#" class="btn" onclick="showSection('beranda')">Kembali ke Beranda</a>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="cara-kerja" class="hidden">
+<h2>Cara Kerja</h2>
+<div class="service-card">
+<h3>1. Pesan via Website / Aplikasi</h3>
+<p>Isi formulir pemesanan dengan detail lokasi dan masalah motor Anda.</p>
+</div>
+<div class="service-card">
+<h3>2. Tim Towing Datang Jemput</h3>
+<p>Tim profesional kami akan datang ke lokasi Anda dalam waktu cepat.</p>
+</div>
+<div class="service-card">
+<h3>3. Servis di Bengkel Mitra</h3>
+<p>Motor Anda akan ditangani di bengkel mitra kami yang terpercaya.</p>
+</div>
+<div class="service-card">
+<h3>4. Kendaraan Diantar Kembali</h3>
+<p>Setelah servis selesai, motor Anda akan diantar kembali dalam kondisi prima.</p>
+</div>
+<a href="#" class="btn" onclick="showSection('beranda')">Kembali ke Beranda</a>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="tentang-kami" class="hidden">
+<h2>Tentang Kami</h2>
+<div class="service-card">
+<h3>🏢 Lokasi Bengkel</h3>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15830.404874987747!2d1 11.90793615!3d 7.14777555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7781b28d9a0d81%3A0x1d7c71f9f2e7b7f1!2sBulu%2C%20Balen%2C%20Bojonegoro%20Regency%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="300" style="border:0; border-radius: 8px; margin-top: 15px;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<div class="service-card">
+<h3>📱 Kontak Kami</h3>
+<p><strong>WhatsApp Admin:</strong> <a href="https://wa.me/6285748946010" style="color: var(--gold-dark); text-decoration: none;">+62 857-4894-6010</a></p>
+<p><strong>Instagram:</strong> <a href="https://instagram.com/siservis" style="color: var(--gold-dark); text-decoration: none;">@SISERVIS</a></p>
+<p><strong>Email:</strong> <a href="mailto:info@siservis.com" style="color: var(--gold-dark); text-decoration: none;">info@siservis.com</a></p>
+</div>
+<div class="service-card">
+<h3>⏰ Jam Operasional</h3>
+<p>Senin - Minggu: 08.00 - 20.00 WIB</p>
+<p>Layanan darurat 24 jam untuk anggota premium</p>
+</div>
+<a href="#" class="btn" onclick="showSection('beranda')">Kembali ke Beranda</a>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="lowongan" class="hidden">
+<h2>Lowongan Montir</h2>
+<p>Kami mencari montir-montir berbakat untuk bergabung dengan tim SI SERVIS!</p>
+
+<div class="service-card">
+<h3>Lowongan: Montir Sepeda Motor Senior</h3>
+<ul>
+<li><strong>Spesifikasi:</strong> Mampu mendiagnosis dan memperbaiki masalah mesin, kelistrikan, dan sasis motor.</li>
+<li><strong>Lulusan:</strong> Minimal SMK Otomotif atau sederajat.</li>
+<li><strong>Jurusan:</strong> Teknik Sepeda Motor, Teknik Otomotif.</li>
+<li><strong>Pengalaman Kerja:</strong> Minimal 3 tahun di bengkel resmi atau umum.</li>
+<li>Memiliki sertifikasi keahlian (misal: mekanik bersertifikat) lebih diutamakan.</li>
+<li>Jujur, teliti, dan bertanggung jawab.</li>
+<li>Mampu bekerja secara mandiri maupun dalam tim.</li>
+</ul>
+<p><strong>Gaji:</strong> Kompetitif (tergantung pengalaman)</p>
+<p><strong>Fasilitas:</strong> BPJS Ketenagakerjaan & Kesehatan, Tunjangan Transportasi, Bonus Kinerja</p>
+<button class="btn btn-accent" onclick="showApplicationForm('senior')">Lamar Sekarang</button>
+
+<div id="application-form-senior" class="application-form hidden">
+    <h4>Formulir Lamaran Montir Senior</h4>
+    <div class="form-group">
+        <label for="senior-nama">Nama Lengkap:</label>
+        <input type="text" id="senior-nama" placeholder="Masukkan nama lengkap" required>
+    </div>
+    <div class="form-group">
+        <label for="senior-alamat">Alamat Lengkap:</label>
+        <textarea id="senior-alamat" rows="3" placeholder="Masukkan alamat lengkap Anda" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="senior-whatsapp">Nomor WhatsApp (dengan kode negara, cth: 62812...):</label>
+        <input type="tel" id="senior-whatsapp" placeholder="Cth: 6285712345678" required>
+    </div>
+    <div class="form-group">
+        <label for="senior-lulusan">Lulusan Sekolah:</label>
+        <input type="text" id="senior-lulusan" placeholder="Cth: SMK Otomotif, D3 Teknik Mesin" required>
+    </div>
+    <div class="form-group">
+        <label for="senior-jurusan">Jurusan:</label>
+        <input type="text" id="senior-jurusan" placeholder="Cth: Teknik Sepeda Motor, Teknik Otomotif" required>
+    </div>
+    <div class="form-group">
+        <label for="senior-pengalaman">Pengalaman Kerja (Tahun):</label>
+        <input type="number" id="senior-pengalaman" min="0" placeholder="Cth: 3" required>
+    </div>
+    <div class="form-group">
+        <label for="senior-portofolio">Link Portofolio / CV Online (Opsional):</label>
+        <input type="url" id="senior-portofolio" placeholder="Cth: drive.google.com/link-cv-anda">
+    </div>
+    <button class="btn btn-accent" onclick="submitApplication('senior')">Kirim Lamaran via WhatsApp</button>
+    <button class="btn" onclick="hideApplicationForm('senior')">Batal</button>
+</div>
+
+</div>
+
+<div class="service-card">
+<h3>Lowongan: Montir Sepeda Motor Junior</h3>
+<ul>
+<li><strong>Spesifikasi:</strong> Memiliki dasar pengetahuan tentang perawatan dan perbaikan ringan sepeda motor.</li>
+<li><strong>Lulusan:</strong> Minimal SMK Otomotif atau sederajat.</li>
+<li><strong>Jurusan:</strong> Teknik Sepeda Motor, Teknik Otomotif.</li>
+<li><strong>Pengalaman Kerja:</strong> Minimal 1 tahun di bidang yang relevan atau fresh graduate dengan magang.</li>
+<li>Antusias belajar dan berkembang.</li>
+<li>Disiplin dan memiliki inisiatif.</li>
+</ul>
+<p><strong>Gaji:</strong> UMR + Tunjangan Makan</p>
+<p><strong>Fasilitas:</strong> Pelatihan Intensif, Kesempatan Pengembangan Karir</p>
+<button class="btn btn-accent" onclick="showApplicationForm('junior')">Lamar Sekarang</button>
+
+<div id="application-form-junior" class="application-form hidden">
+    <h4>Formulir Lamaran Montir Junior</h4>
+    <div class="form-group">
+        <label for="junior-nama">Nama Lengkap:</label>
+        <input type="text" id="junior-nama" placeholder="Masukkan nama lengkap" required>
+    </div>
+    <div class="form-group">
+        <label for="junior-alamat">Alamat Lengkap:</label>
+        <textarea id="junior-alamat" rows="3" placeholder="Masukkan alamat lengkap Anda" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="junior-whatsapp">Nomor WhatsApp (dengan kode negara, cth: 62812...):</label>
+        <input type="tel" id="junior-whatsapp" placeholder="Cth: 6285712345678" required>
+    </div>
+    <div class="form-group">
+        <label for="junior-lulusan">Lulusan Sekolah:</label>
+        <input type="text" id="junior-lulusan" placeholder="Cth: SMK Otomotif, D3 Teknik Mesin" required>
+    </div>
+    <div class="form-group">
+        <label for="junior-jurusan">Jurusan:</label>
+        <input type="text" id="junior-jurusan" placeholder="Cth: Teknik Sepeda Motor, Teknik Otomotif" required>
+    </div>
+    <div class="form-group">
+        <label for="junior-pengalaman">Pengalaman Kerja (Tahun):</label>
+        <input type="number" id="junior-pengalaman" min="0" placeholder="Cth: 0 (Fresh Graduate)" required>
+    </div>
+    <div class="form-group">
+        <label for="junior-portofolio">Link Portofolio / CV Online (Opsional):</label>
+        <input type="url" id="junior-portofolio" placeholder="Cth: drive.google.com/link-cv-anda">
+    </div>
+    <button class="btn btn-accent" onclick="submitApplication('junior')">Kirim Lamaran via WhatsApp</button>
+    <button class="btn" onclick="hideApplicationForm('junior')">Batal</button>
+</div>
+
+</div>
+
+<p>Kirim CV dan portofolio Anda ke email: <a href="mailto:hrd@siservis.com" style="color: var(--gold-dark); text-decoration: none;">hrd@siservis.com</a> atau hubungi kami via WhatsApp untuk informasi lebih lanjut.</p>
+<a href="#" class="btn" onclick="showSection('beranda')">Kembali ke Beranda</a>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="register" class="hidden">
+<h2>Daftar Member Baru</h2>
+<p>Daftar untuk mendapatkan akses penuh ke layanan kami!</p>
+<div class="form-group">
+<label for="reg-nama">Nama Lengkap:</label>
+<input type="text" id="reg-nama" name="reg-nama" required placeholder="Masukkan nama Anda">
+</div>
+<div class="form-group">
+<label for="reg-whatsapp">Nomor WhatsApp:</label>
+<input type="tel" id="reg-whatsapp" name="reg-whatsapp" required placeholder="Contoh: 6285748946010">
+</div>
+<div class="form-group">
+<label for="reg-password">Password:</label>
+<input type="password" id="reg-password" name="reg-password" required placeholder="Buat password Anda">
+</div>
+<button class="btn btn-accent" onclick="register()">Daftar</button>
+<a href="#" class="btn" onclick="showSection('login')">Sudah punya akun? Login</a>
+<a href="#" class="btn" onclick="showSection('beranda')">Kembali</a>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="login" class="hidden">
+<h2>Login</h2>
+<p>Masukkan akun Anda untuk mengakses layanan kami:</p>
+<div class="form-group">
+<label for="login-whatsapp">Nomor WhatsApp:</label>
+<input type="tel" id="login-whatsapp" name="login-whatsapp" required placeholder="Nomor WhatsApp terdaftar">
+</div>
+<div class="form-group">
+<label for="login-password">Password:</label>
+<input type="password" id="login-password" name="login-password" required placeholder="Password Anda">
+</div>
+<button class="btn" onclick="login()">Login</button>
+<a href="#" class="btn" onclick="showSection('register')">Belum punya akun? Daftar</a>
+<a href="#" class="btn" onclick="showSection('beranda')">Kembali</a>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="produk" class="hidden">
+<h2>Produk Sparepart</h2>
+<div class="search-filter-container">
+<input type="text" id="search-product" placeholder="Cari produk..." onkeyup="filterProducts()">
+<select id="filter-category" onchange="filterProducts()">
+<option value="">Semua Kategori</option>
+<option value="Ban">Ban</option>
+<option value="Oli">Oli</option>
+<option value="Kampas Rem">Kampas Rem</option>
+<option value="Busi">Busi</option>
+<option value="Aki">Aki</option>
+<option value="Filter Udara">Filter Udara</option>
+</select>
+<select id="filter-brand" onchange="filterProducts()">
+<option value="">Semua Merek</option>
+<option value="Michelin">Michelin</option>
+<option value="Pirelli">Pirelli</option>
+<option value="Shell">Shell</option>
+<option value="Castrol">Castrol</option>
+<option value="Brembo">Brembo</option>
+<option value="NGK">NGK</option>
+<option value="Yuasa">Yuasa</option>
+<option value="Ferrox">Ferrox</option>
+<option value="Nissin">Nissin</option>
+<option value="SSS">SSS</option>
+</select>
+</div>
+<div id="product-list" class="product-grid">
+</div>
+<a href="#" class="btn" onclick="showSection('beranda')">Kembali ke Beranda</a>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="pesan-sekarang" class="hidden">
+<h2>Pesan Layanan</h2>
+<div id="login-first" class="hidden">
+<p>Silakan login terlebih dahulu untuk memesan layanan.</p>
+<button class="btn" onclick="showSection('login')">Login Sekarang</button>
+</div>
+<div id="order-form" class="hidden">
+<div class="form-group">
+<label for="alamat">Alamat Penjemputan:</label>
+<input type="text" id="alamat" name="alamat" required placeholder="Masukkan alamat lengkap penjemputan">
+</div>
+<div class="form-group">
+<label for="jenis-motor">Jenis Motor:</label>
+<select id="jenis-motor" name="jenis-motor" required>
+<option value="">Pilih Jenis Motor</option>
+<option value="bebek">Bebek (Honda Revo, honda supra, yamaha jupiter, suzuki satria, dll.)</option>
+<option value="sport">Sport (yamaha R15, honda CBR150R, kawasaki ninja 250, suzuki GSX-R150, dll.)</option>
+<option value="matic">Matic (honda beat, honda vario, yamaha mio, yamaha NMAX, yamaha aerox, dll.)</option>
+<option value="skuter">Skuter (honda scoopy, vespa, vespa matic, yamaha fino, dll.)</option>
+<option value="lainnya">Lainnya (motor custom, honda crf, yamaha WR, kawasaki KLX, dll.)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="jenis-kerusakan">Jenis Kerusakan:</label>
+<select id="jenis-kerusakan" name="jenis-kerusakan" required>
+<option value="">Pilih Jenis Kerusakan</option>
+<option value="ringan">Ringan (Ganti oli, tune-up, dll)</option>
+<option value="berat">Berat (Overhaul mesin, transmisi, dll)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="keterangan">Keterangan Tambahan:</label>
+<textarea id="keterangan" name="keterangan" rows="4" placeholder="Jelaskan masalah motor Anda secara detail"></textarea>
+</div>
+<div class="form-group">
+<label>Beli Sparepart Tambahan?</label>
+<button type="button" class="btn" onclick="toggleProductSelection()">Ya, Tambah Sparepart</button>
+</div>
+<div id="product-selection-container" class="hidden">
+<h3>Pilih Sparepart:</h3>
+<div class="product-grid" id="checkout-product-list">
+</div>
+</div>
+<button class="btn btn-accent" onclick="processOrder()">Pesan Sekarang</button>
+</div>
+<a href="#" class="btn" onclick="showSection('beranda')">Kembali">Kembali</a>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="order-confirmation" class="hidden">
+<h2 style="color: var(--gold-dark);">🎉 Pesanan Diterima!</h2>
+<p id="confirmation-message" style="font-size: 1.1rem;"></p>
+<p id="estimated-time" style="font-weight: 500;"></p>
+<div id="cart-summary" class="hidden">
+<h3>Ringkasan Pesanan Anda:</h3>
+<ul id="cart-items">
+</ul>
+<div id="total-checkout-price"></div>
+</div>
+<div class="payment-info" id="payment-info">
+<h3>Informasi Pembayaran</h3>
+<div class="price-tag" id="service-cost"></div>
+<p>Pembayaran dapat dilakukan via transfer ke:</p>
+<p><strong>Bank BNI:</strong> 1789701331 a.n SI SERVIS</p>
+<p><strong>Catatan:</strong> Pembayaran dilakukan setelah servis selesai dan Anda sudah menerima motor dalam kondisi baik.</p>
+</div>
+<div style="margin-top: 30px; background-color: #f8f8f8; padding: 15px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);">
+<h3>Status Pesanan</h3>
+<p>Anda akan menerima notifikasi via WhatsApp untuk:</p>
+<ul>
+<li>Konfirmasi penjemputan</li>
+<li>Update progress servis</li>
+<li>Pengantaran motor kembali</li>
+</ul>
+</div>
+<button class="btn" style="margin-top: 20px;" onclick="completeService()">Servis Selesai</button>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="rating-section" class="hidden">
+<h2>Rating & Ulasan</h2>
+<p>Bagaimana pengalaman Anda dengan layanan kami?</p>
+<div class="rating">
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+</div>
+<div class="form-group">
+<label for="komentar">Komentar (opsional):</label>
+<textarea id="komentar" name="komentar" rows="4" placeholder="Bagikan pengalaman Anda..."></textarea>
+</div>
+<button class="btn btn-accent" onclick="submitRating()">Kirim Penilaian</button>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="thank-you" class="hidden" style="text-align: center;">
+<svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px;">
+<path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#D4AF37"/>
+<path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<h2 style="color: var(--gold-dark);">Terima Kasih!</h2>
+<p style="font-size: 1.1rem;">Terima kasih telah menggunakan layanan SI SERVIS. Kami senang bisa membantu Anda.</p>
+<p>Silakan hubungi kami jika Anda membutuhkan bantuan lebih lanjut.</p>
+<button class="btn btn-accent" onclick="showSection('beranda')">Kembali ke Beranda</button>
+<footer>
+<div class="footer-content">
+<p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+<p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+<p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+<div class="social-links">
+<a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+</div>
+</div>
+</footer>
+</section>
+
+<section id="registration-done" class="hidden" style="text-align: center; padding: 50px 20px;">
+    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px;">
+        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#D4AF37"/>
+        <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h2 style="color: var(--gold-dark);">Pendaftaran Selesai!</h2>
+    <p style="font-size: 1.1rem;">Pendaftaran Anda telah terkirim. Mohon tunggu WhatsApp dari <span style="font-weight: bold;">SI SERVIS</span> untuk mengonfirmasi Anda berhasil lulus/tidak.</p>
+    <button class="btn btn-accent" style="margin-top: 30px;" onclick="showSection('beranda')">Kembali ke Beranda</button>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 SI SERVIS. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p>Jalan Masjid RT 09 RW 03, Bulu Balen, Bojonegoro</p>
+            <p>Kontak: <a href="https://wa.me/6285748946010">+62 857-4894-6010</a> | <a href="mailto:info@siservis.com">info@siservis.com</a></p>
+            <div class="social-links">
+                <a href="https://instagram.com/siservis" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</section>
+
+
+</div>
+
+<script>
+let isLoggedIn = false;
+let currentUser = null; // To store logged-in user data
+let users = JSON.parse(localStorage.getItem('users')) || []; // Store registered users
+let currentOrder = {};
+let selectedRating = 0;
+let selectedProductsForCheckout = []; // To store products selected for purchase
+
+const products = [
+{ id: 1, name: 'Ban Michelin Pilot Street', price: 450000, stock: 15, category: 'Ban', brand: 'Michelin', image: 'banmichelin.png' },
+{ id: 2, name: 'Oli Shell Advance AX7', price: 75000, stock: 50, category: 'Oli', brand: 'Shell', image: 'olishell.png' },
+{ id: 3, name: 'Kampas Rem Depan Brembo', price: 120000, stock: 20, category: 'Kampas Rem', brand: 'Brembo', image: 'kampasrembrembo.png' },
+{ id: 4, name: 'Busi NGK Iridium CPR9EA-9', price: 90000, stock: 30, category: 'Busi', brand: 'NGK', image: 'busingk.png' },
+{ id: 5, name: 'Aki Yuasa YTZ5S', price: 250000, stock: 10, category: 'Aki', brand: 'Yuasa', image: 'aki.png' },
+{ id: 6, name: 'Filter Udara Ferrox', price: 180000, stock: 12, category: 'Filter Udara', brand: 'Ferrox', image: 'filter.png' },
+{ id: 7, name: 'Ban Pirelli Diablo Rosso Sport', price: 550000, stock: 8, category: 'Ban', brand: 'Pirelli', image: 'banpirelli.png' },
+{ id: 8, name: 'Oli Castrol Power 1', price: 65000, stock: 40, category: 'Oli', brand: 'Castrol', image: 'olicastrol.png' },
+{ id: 9, name: 'Kampas Rem Belakang Nissin', price: 80000, stock: 25, category: 'Kampas Rem', brand: 'Nissin', image: 'kampasremnissin.png' },
+{ id: 10, name: 'Rantai Motor SSS 428', price: 160000, stock: 18, category: 'Rantai', brand: 'SSS', image: 'rantai.png' },
+];
+
+function formatRupiah(number) {
+return new Intl.NumberFormat('id-ID', {
+style: 'currency',
+currency: 'IDR',
+minimumFractionDigits: 0
+}).format(number);
+}
+
+function showSection(sectionId) {
+document.querySelectorAll('section').forEach(section => {
+section.classList.add('hidden');
+});
+document.getElementById(sectionId).classList.remove('hidden');
+
+// Ensure application forms are hidden when navigating to other sections
+document.querySelectorAll('.application-form').forEach(form => form.classList.add('hidden'));
+
+if (sectionId === 'pesan-sekarang') {
+if (isLoggedIn) {
+document.getElementById('order-form').classList.remove('hidden');
+document.getElementById('login-first').classList.add('hidden');
+loadCheckoutProducts(); // Load products when "Pesan Sekarang" is shown
+} else {
+document.getElementById('order-form').classList.add('hidden');
+document.getElementById('login-first').classList.remove('hidden');
+}
+} else if (sectionId === 'produk') {
+displayProducts(products); // Load all products when "Produk" is shown
+}
+window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function register() {
+const nama = document.getElementById('reg-nama').value;
+const whatsapp = document.getElementById('reg-whatsapp').value;
+const password = document.getElementById('reg-password').value;
+
+if (nama && whatsapp && password) {
+if (users.some(user => user.whatsapp === whatsapp)) {
+alert('Nomor WhatsApp sudah terdaftar. Silakan login atau gunakan nomor lain.');
+return;
+}
+users.push({ nama, whatsapp, password });
+localStorage.setItem('users', JSON.stringify(users));
+alert('Pendaftaran berhasil! Silakan login.');
+document.getElementById('reg-nama').value = '';
+document.getElementById('reg-whatsapp').value = '';
+document.getElementById('reg-password').value = '';
+showSection('login');
+} else {
+alert('Mohon lengkapi semua kolom pendaftaran.');
+}
+}
+
+function login() {
+const whatsapp = document.getElementById('login-whatsapp').value;
+const password = document.getElementById('login-password').value;
+
+const user = users.find(u => u.whatsapp === whatsapp && u.password === password);
+
+if (user) {
+isLoggedIn = true;
+currentUser = user;
+alert(`Selamat datang kembali, ${currentUser.nama}! Anda sekarang login.`);
+document.getElementById('login-whatsapp').value = '';
+document.getElementById('login-password').value = '';
+showSection('beranda'); // Redirect to home or directly to order page
+} else {
+alert('Nomor WhatsApp atau password salah. Silakan coba lagi.');
+}
+}
+
+function processOrder() {
+if (!isLoggedIn) {
+alert('Anda harus login untuk memesan layanan.');
+showSection('login');
+return;
+}
+
+const alamat = document.getElementById('alamat').value;
+const jenisKerusakan = document.getElementById('jenis-kerusakan').value;
+const jenisMotor = document.getElementById('jenis-motor').value;
+const keterangan = document.getElementById('keterangan').value;
+
+if (!alamat || !jenisKerusakan || !jenisMotor) {
+alert('Silakan lengkapi semua informasi layanan yang diperlukan.');
+return;
+}
+
+currentOrder = {
+alamat,
+jenisKerusakan,
+jenisMotor,
+keterangan,
+tanggal: new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+serviceCost: 0,
+selectedProducts: selectedProductsForCheckout.map(p => ({ ...p })) // Deep copy
+};
+
+if (jenisKerusakan === 'ringan') {
+currentOrder.serviceCost = 300000;
+} else {
+currentOrder.serviceCost = 1000000;
+}
+
+document.getElementById('confirmation-message').innerHTML = `Terima kasih telah memesan layanan kami pada <strong>${currentOrder.tanggal}</strong>.<br><br> Motor <strong>${currentOrder.jenisMotor}</strong> Anda akan dijemput di:<br> <strong>${alamat}</strong>`;
+document.getElementById('estimated-time').innerHTML = `⏰ <strong>Estimasi penyelesaian:</strong> Paling lambat ${jenisKerusakan === 'ringan' ? '2 hari kerja' : '7 hari kerja'}`;
+
+displayOrderSummary();
+showSection('order-confirmation');
+}
+
+function displayOrderSummary() {
+let totalCost = currentOrder.serviceCost;
+document.getElementById('service-cost').textContent = formatRupiah(currentOrder.serviceCost);
+
+const cartSummaryDiv = document.getElementById('cart-summary');
+const cartItemsList = document.getElementById('cart-items');
+cartItemsList.innerHTML = ''; // Clear previous items
+
+if (currentOrder.selectedProducts && currentOrder.selectedProducts.length > 0) {
+cartSummaryDiv.classList.remove('hidden');
+currentOrder.selectedProducts.forEach(product => {
+const listItem = document.createElement('li');
+listItem.innerHTML = `<span class="item-name">${product.name}</span><span class="item-price">${formatRupiah(product.price)}</span>`;
+cartItemsList.appendChild(listItem);
+totalCost += product.price;
+});
+} else {
+cartSummaryDiv.classList.add('hidden');
+}
+document.getElementById('total-checkout-price').textContent = `Total Pembayaran: ${formatRupiah(totalCost)}`;
+}
+
+function completeService() {
+showSection('rating-section');
+}
+
+function submitRating() {
+const komentar = document.getElementById('komentar').value;
+console.log(`Rating: ${selectedRating}, Komentar: ${komentar}`);
+showSection('thank-you');
+}
+
+// Initialize star rating
+document.querySelectorAll('.rating > span').forEach((star, index) => {
+star.addEventListener('click', function() {
+selectedRating = 5 - index;
+// Update star display
+document.querySelectorAll('.rating > span').forEach((s, i) => {
+if (i <= index) {
+s.textContent = '★';
+s.classList.add('active');
+} else {
+s.textContent = '☆';
+s.classList.remove('active');
+}
+});
+});
+
+// Add hover effect
+star.addEventListener('mouseover', function() {
+const hoverIndex = Array.from(document.querySelectorAll('.rating > span')).indexOf(this);
+document.querySelectorAll('.rating > span').forEach((s, i) => {
+if (i <= hoverIndex) {
+s.style.color = 'var(--gold-light)';
+}
+}
+);
+});
+
+star.addEventListener('mouseout', function() {
+document.querySelectorAll('.rating > span').forEach((s, i) => {
+if (!s.classList.contains('active')) {
+s.style.color = '#ddd';
+}
+});
+});
+});
+
+// Product display functions
+function displayProducts(productsToDisplay) {
+const productListDiv = document.getElementById('product-list');
+productListDiv.innerHTML = ''; // Clear existing products
+
+if (productsToDisplay.length === 0) {
+productListDiv.innerHTML = '<p style="text-align: center; color: #777;">Tidak ada produk ditemukan.</p>';
+return;
+}
+
+productsToDisplay.forEach(product => {
+const productCard = document.createElement('div');
+productCard.classList.add('product-card');
+productCard.innerHTML = `
+<img src="${product.image}" alt="${product.name}">
+<h4>${product.name}</h4>
+<p class="price">${formatRupiah(product.price)}</p>
+<p class="stock">Stok: ${product.stock}</p>
+<button class="add-to-cart-btn" onclick="addToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
+${product.stock === 0 ? 'Stok Habis' : 'Tambah ke Keranjang'}
+</button>
+`;
+productListDiv.appendChild(productCard);
+});
+}
+
+function filterProducts() {
+const searchTerm = document.getElementById('search-product').value.toLowerCase();
+const categoryFilter = document.getElementById('filter-category').value;
+const brandFilter = document.getElementById('filter-brand').value;
+
+const filtered = products.filter(product => {
+const matchesSearch = product.name.toLowerCase().includes(searchTerm);
+const matchesCategory = categoryFilter === '' || product.category === categoryFilter;
+const matchesBrand = brandFilter === '' || product.brand === brandFilter;
+return matchesSearch && matchesCategory && matchesBrand;
+});
+
+displayProducts(filtered);
+}
+
+function loadCheckoutProducts() {
+const checkoutProductListDiv = document.getElementById('checkout-product-list');
+checkoutProductListDiv.innerHTML = ''; // Clear previous products
+
+products.forEach(product => {
+const productCard = document.createElement('div');
+productCard.classList.add('product-card');
+productCard.innerHTML = `
+<img src="${product.image}" alt="${product.name}">
+<h4>${product.name}</h4>
+<p class="price">${formatRupiah(product.price)}</p>
+<p class="stock">Stok: ${product.stock}</p>
+<button class="add-to-cart-btn" data-product-id="${product.id}" onclick="toggleProductSelectionForCheckout(this, ${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
+${product.stock === 0 ? 'Stok Habis' : 'Pilih Produk'}
+</button>
+`;
+checkoutProductListDiv.appendChild(productCard);
+});
+updateCheckoutButtonStates();
+}
+
+function toggleProductSelection() {
+const productSelectionContainer = document.getElementById('product-selection-container');
+productSelectionContainer.classList.toggle('hidden');
+if (!productSelectionContainer.classList.contains('hidden')) {
+loadCheckoutProducts();
+}
+}
+
+function toggleProductSelectionForCheckout(buttonElement, productId) {
+const product = products.find(p => p.id === productId);
+if (!product || product.stock === 0) return;
+
+const index = selectedProductsForCheckout.findIndex(p => p.id === productId);
+if (index > -1) {
+// Product already selected, remove it
+selectedProductsForCheckout.splice(index, 1);
+buttonElement.textContent = 'Pilih Produk';
+buttonElement.classList.remove('btn-accent'); // Remove accent color
+buttonElement.classList.add('btn'); // Add default button style
+} else {
+// Product not selected, add it
+selectedProductsForCheckout.push(product);
+buttonElement.textContent = 'Batalkan Pilihan';
+buttonElement.classList.add('btn-accent'); // Add accent color
+buttonElement.classList.remove('btn'); // Remove default button style
+}
+}
+
+function updateCheckoutButtonStates() {
+document.querySelectorAll('#checkout-product-list .add-to-cart-btn').forEach(button => {
+const productId = parseInt(button.dataset.productId);
+if (selectedProductsForCheckout.some(p => p.id === productId)) {
+button.textContent = 'Batalkan Pilihan';
+button.classList.add('btn-accent');
+button.classList.remove('btn');
+} else {
+button.textContent = 'Pilih Produk';
+button.classList.remove('btn-accent');
+button.classList.add('btn');
+}
+});
+}
+
+// === Aplikasi Lamaran Kerja Functions ===
+function showApplicationForm(type) {
+    document.getElementById(`application-form-${type}`).classList.remove('hidden');
+    // Hide other form if visible
+    const otherType = type === 'senior' ? 'junior' : 'senior';
+    document.getElementById(`application-form-${otherType}`).classList.add('hidden');
+    window.scrollTo({top: document.getElementById(`application-form-${type}`).offsetTop, behavior: 'smooth'});
+}
+
+function hideApplicationForm(type) {
+    document.getElementById(`application-form-${type}`).classList.add('hidden');
+    // Clear form fields when hidden
+    const formId = `application-form-${type}`;
+    document.getElementById(`${formId}`).reset(); // Reset form fields
+}
+
+function submitApplication(type) {
+    const nama = document.getElementById(`${type}-nama`).value;
+    const alamat = document.getElementById(`${type}-alamat`).value;
+    const whatsapp = document.getElementById(`${type}-whatsapp`).value;
+    const lulusan = document.getElementById(`${type}-lulusan`).value;
+    const jurusan = document.getElementById(`${type}-jurusan`).value;
+    const pengalaman = document.getElementById(`${type}-pengalaman`).value;
+    const portofolio = document.getElementById(`${type}-portofolio`).value;
+
+    // Validate required fields
+    if (!nama || !alamat || !whatsapp || !lulusan || !jurusan || pengalaman === '') {
+        alert('Mohon lengkapi semua data yang wajib diisi (Nama, Alamat, WhatsApp, Lulusan, Jurusan, Pengalaman Kerja).');
+        return;
+    }
+
+    const jobTitle = type === 'senior' ? 'Montir Sepeda Motor Senior' : 'Montir Sepeda Motor Junior';
+
+    let message = `*LAMARAN KERJA ${jobTitle.toUpperCase()}*\n\n`;
+    message += `*Nama:* ${nama}\n`;
+    message += `*Alamat:* ${alamat}\n`;
+    message += `*No. WhatsApp:* ${whatsapp}\n`;
+    message += `*Lulusan Sekolah:* ${lulusan}\n`;
+    message += `*Jurusan:* ${jurusan}\n`;
+    message += `*Pengalaman Kerja:* ${pengalaman} tahun\n`;
+    if (portofolio) {
+        message += `*Link Portofolio/CV:* ${portofolio}\n`;
+    }
+    message += `\n*Pesan Otomatis dari Situs SI SERVIS*`;
+
+    const whatsappNumber = '6285748946010'; // Ganti dengan nomor WhatsApp Anda
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp
+    window.open(whatsappLink, '_blank');
+
+    // Show the "registration-done" section and clear the form
+    alert('Lamaran Anda akan dialihkan ke WhatsApp untuk dikirim. Pastikan Anda mengirim pesan tersebut.');
+    document.getElementById(`application-form-${type}`).reset();
+    hideApplicationForm(type); // Hide the current form
+    showSection('registration-done'); // Show the success message section
+}
+
+function register() {
+    const nama = document.getElementById('reg-nama').value;
+    const whatsapp = document.getElementById('reg-whatsapp').value;
+    const password = document.getElementById('reg-password').value;
+
+    if (nama && whatsapp && password) {
+        if (users.some(user => user.whatsapp === whatsapp)) {
+            alert('Nomor WhatsApp sudah terdaftar. Silakan login atau gunakan nomor lain.');
+            return;
+        }
+        users.push({ nama, whatsapp, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('Pendaftaran berhasil! Silakan login.');
+        document.getElementById('reg-nama').value = '';
+        document.getElementById('reg-whatsapp').value = '';
+        document.getElementById('reg-password').value = '';
+        showSection('login');
+    } else {
+        alert('Mohon lengkapi semua kolom pendaftaran.');
+    }
+}
+function register() {
+    const nama = document.getElementById('reg-nama').value;
+    const whatsapp = document.getElementById('reg-whatsapp').value;
+    const password = document.getElementById('reg-password').value;
+
+    if (!nama || !whatsapp || !password) {
+        alert('Mohon lengkapi semua kolom pendaftaran.');
+        return;
+    }
+
+    fetch('http://localhost/siservis_backend/register.php', { // Sesuaikan URL
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nama, whatsapp, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+            document.getElementById('reg-nama').value = '';
+            document.getElementById('reg-whatsapp').value = '';
+            document.getElementById('reg-password').value = '';
+            showSection('login');
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Terjadi kesalahan saat pendaftaran. Silakan coba lagi.');
+    });
+}
+
+function login() {
+    const whatsapp = document.getElementById('login-whatsapp').value;
+    const password = document.getElementById('login-password').value;
+
+    if (!whatsapp || !password) {
+        alert('Mohon lengkapi semua kolom login.');
+        return;
+    }
+
+    fetch('http://localhost/siservis_backend/login.php', { // Sesuaikan URL
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ whatsapp, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            isLoggedIn = true;
+            currentUser = data.user; // Simpan data pengguna yang login
+            alert(`Selamat datang kembali, ${currentUser.nama}! Anda sekarang login.`);
+            document.getElementById('login-whatsapp').value = '';
+            document.getElementById('login-password').value = '';
+            showSection('beranda');
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Terjadi kesalahan saat login. Silakan coba lagi.');
+    });
+}
+
+// Anda juga perlu mengubah logic isLoggedIn dan currentUser agar diambil dari respons login
+// dan dipertahankan (misalnya dengan Session Storage atau Context API di framework nyata)
+// untuk saat ini, variabel global isLoggedIn dan currentUser sudah cukup sebagai contoh dasar.
+// Initial display setup
+document.addEventListener('DOMContentLoaded', () => {
+showSection('beranda');
+});
+</script>
+</body>
+</html>
